@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Container from '@material-ui/core/Container';
 import Header from '../Header';
 import TabsPanel from '../TabsPanel';
-import Stepper from '../Stepper';
+import Form from '../Form';
 import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
 import { calculateCompoundInterest } from '../../utils/calculateCompoundInterest';
 
@@ -17,7 +17,7 @@ const App = () => {
       <br />
       <Container>
         <TabsPanel />
-        <Stepper />
+        <Form />
       </Container>
     </Fragment>
   );
