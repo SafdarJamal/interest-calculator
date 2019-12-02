@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
-import Container from '@material-ui/core/Container';
 import Header from '../Header';
-import TabsPanel from '../TabsPanel';
-import Form from '../Form';
+import Main from '../Main';
 import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
 import { calculateCompoundInterest } from '../../utils/calculateCompoundInterest';
 
@@ -13,12 +11,7 @@ const App = () => {
   return (
     <Fragment>
       <Header />
-      <br />
-      <br />
-      <Container>
-        <TabsPanel />
-        <Form />
-      </Container>
+      <Main />
     </Fragment>
   );
 };
