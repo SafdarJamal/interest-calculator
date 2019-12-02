@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
 
@@ -21,7 +22,8 @@ class SimpleInterestForm extends Component {
     this.state = {
       initialInvestment: '',
       interestRate: '',
-      calculationPeriod: ''
+      calculationPeriod: '',
+      calculationPeriodType: 2
     };
   }
 
@@ -35,23 +37,31 @@ class SimpleInterestForm extends Component {
     const {
       initialInvestment,
       interestRate,
-      calculationPeriod,
-      compoundInterval,
-      regularInvestment
+      calculationPeriodType
     } = this.state;
+    let { calculationPeriod } = this.state;
 
-    calculateSimpleInterest(
-      initialInvestment,
-      interestRate,
-      calculationPeriod,
-      compoundInterval,
-      regularInvestment
-    );
+    switch (calculationPeriodType) {
+      case 0:
+        calculationPeriod = calculationPeriod / 365 / 1;
+        break;
+      case 1:
+        calculationPeriod = calculationPeriod / 12 / 1;
+        break;
+      default:
+        break;
+    }
+
+    calculateSimpleInterest(initialInvestment, interestRate, calculationPeriod);
   };
 
   render() {
-    const { initialInvestment, interestRate, calculationPeriod } = this.state;
-    console.log(this.state);
+    const {
+      initialInvestment,
+      interestRate,
+      calculationPeriod,
+      calculationPeriodType
+    } = this.state;
 
     const { classes } = this.props;
 
@@ -64,6 +74,7 @@ class SimpleInterestForm extends Component {
           autoComplete="off"
         >
           <TextField
+            autoFocus
             name="initialInvestment"
             label="Initial Investment"
             variant="outlined"
@@ -73,7 +84,7 @@ class SimpleInterestForm extends Component {
           />
           <TextField
             name="interestRate"
-            label="Interest Rate (Yearly)"
+            label="Yearly Interest Rate (%)"
             variant="outlined"
             type="number"
             value={interestRate}
@@ -87,6 +98,20 @@ class SimpleInterestForm extends Component {
             value={calculationPeriod}
             onChange={this.handleChange}
           />
+          <TextField
+            name="calculationPeriodType"
+            label="Calculation Period Type"
+            select
+            value={calculationPeriodType}
+            onChange={this.handleChange}
+            variant="outlined"
+          >
+            <MenuItem value={0}>Days</MenuItem>
+            <MenuItem value={1}>Months</MenuItem>
+            <MenuItem value={2} selected>
+              Years
+            </MenuItem>
+          </TextField>
           <br />
           <Button type="submit" variant="contained" color="primary">
             Calculate
