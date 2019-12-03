@@ -67,6 +67,16 @@ class CompoundInterest extends Component {
     } = this.state;
 
     const { classes } = this.props;
+    let isFormFilled = false;
+
+    if (
+      initialInvestment &&
+      interestRate &&
+      calculationPeriod &&
+      compoundInterval
+    ) {
+      isFormFilled = true;
+    }
 
     return (
       <Paper elevation={2}>
@@ -136,9 +146,15 @@ class CompoundInterest extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <Button type="submit" variant="contained" color="primary">
-            Calculate
-          </Button>
+          {isFormFilled ? (
+            <Button type="submit" variant="contained" color="primary">
+              Calculate
+            </Button>
+          ) : (
+            <Button disabled variant="contained">
+              Calculate
+            </Button>
+          )}
         </form>
       </Paper>
     );

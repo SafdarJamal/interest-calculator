@@ -55,6 +55,11 @@ class SimpleInterest extends Component {
     } = this.state;
 
     const { classes } = this.props;
+    let isFormFilled = false;
+
+    if (initialInvestment && interestRate && calculationPeriod) {
+      isFormFilled = true;
+    }
 
     return (
       <Paper elevation={2}>
@@ -102,9 +107,15 @@ class SimpleInterest extends Component {
             <MenuItem value={1}>Years</MenuItem>
           </TextField>
           <br />
-          <Button type="submit" variant="contained" color="primary">
-            Calculate
-          </Button>
+          {isFormFilled ? (
+            <Button type="submit" variant="contained" color="primary">
+              Calculate
+            </Button>
+          ) : (
+            <Button disabled variant="contained">
+              Calculate
+            </Button>
+          )}
         </form>
       </Paper>
     );
