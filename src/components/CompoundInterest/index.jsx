@@ -15,7 +15,7 @@ const styles = theme => ({
   }
 });
 
-class Form extends Component {
+class CompoundInterest extends Component {
   constructor(props) {
     super(props);
 
@@ -129,7 +129,7 @@ class Form extends Component {
           </TextField>
           <TextField
             name="regularInvestment"
-            label="Regular Investment (Optional)"
+            label="Regular Monthly Investment (Optional)"
             variant="outlined"
             type="number"
             value={regularInvestment}
@@ -145,4 +145,4 @@ class Form extends Component {
   }
 }
 
-export default withStyles(styles)(Form);
+export default withStyles(styles)(CompoundInterest);

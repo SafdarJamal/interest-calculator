@@ -15,7 +15,7 @@ const styles = theme => ({
   }
 });
 
-class SimpleInterestForm extends Component {
+class SimpleInterest extends Component {
   constructor(props) {
     super(props);
 
@@ -111,4 +111,4 @@ class SimpleInterestForm extends Component {
   }
 }
 
-export default withStyles(styles)(SimpleInterestForm);
+export default withStyles(styles)(SimpleInterest);

@@ -1,9 +1,10 @@
-const calculateCompoundInterest = (P, r, t, n, regularInvestment = 0) => {
+const calculateCompoundInterest = (P, r, t, n, PMT) => {
   r = r / 100;
   const I = Number(
-    ((P + regularInvestment * t * 12) * Math.pow(1 + r / n, n * t) - P).toFixed(
-      2
-    )
+    (
+      P * Math.pow(1 + r / n, n * t) +
+      (PMT * (Math.pow(1 + r / n, n * t) - 1)) / (r / n)
+    ).toFixed(2)
   );
   const A = P + I;
 
