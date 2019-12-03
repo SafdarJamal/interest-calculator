@@ -108,11 +108,16 @@ class SimpleInterest extends Component {
           </TextField>
           <br />
           {isFormFilled ? (
-            <Button type="submit" variant="contained" color="primary">
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="large"
+            >
               Calculate
             </Button>
           ) : (
-            <Button disabled variant="contained">
+            <Button disabled variant="contained" size="large">
               Calculate
             </Button>
           )}
