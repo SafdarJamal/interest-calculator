@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
-import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
 import { calculateCompoundInterest } from '../../utils/calculateCompoundInterest';
 
 const styles = theme => ({
@@ -23,7 +23,8 @@ class Form extends Component {
       initialInvestment: '',
       interestRate: '',
       calculationPeriod: '',
-      compoundInterval: '',
+      calculationPeriodType: 1,
+      compoundInterval: 12,
       regularInvestment: ''
     };
   }
@@ -38,10 +39,13 @@ class Form extends Component {
     const {
       initialInvestment,
       interestRate,
-      calculationPeriod,
+      calculationPeriodType,
       compoundInterval,
       regularInvestment
     } = this.state;
+
+    let { calculationPeriod } = this.state;
+    calculationPeriod = calculationPeriod / calculationPeriodType / 1;
 
     calculateCompoundInterest(
       initialInvestment,
@@ -57,10 +61,10 @@ class Form extends Component {
       initialInvestment,
       interestRate,
       calculationPeriod,
+      calculationPeriodType,
       compoundInterval,
       regularInvestment
     } = this.state;
-    console.log(this.state);
 
     const { classes } = this.props;
 
@@ -73,6 +77,7 @@ class Form extends Component {
           autoComplete="off"
         >
           <TextField
+            autoFocus
             name="initialInvestment"
             label="Initial Investment"
             variant="outlined"
@@ -97,16 +102,34 @@ class Form extends Component {
             onChange={this.handleChange}
           />
           <TextField
+            name="calculationPeriodType"
+            label="Calculation Period Type"
+            variant="outlined"
+            select
+            value={calculationPeriodType}
+            onChange={this.handleChange}
+          >
+            <MenuItem value={365}>Days</MenuItem>
+            <MenuItem value={12}>Months</MenuItem>
+            <MenuItem value={1}>Years</MenuItem>
+          </TextField>
+          <TextField
             name="compoundInterval"
             label="Compound Interval"
             variant="outlined"
-            type="number"
+            select
             value={compoundInterval}
             onChange={this.handleChange}
-          />
+          >
+            <MenuItem value={365}>Daily</MenuItem>
+            <MenuItem value={12}>Monthly</MenuItem>
+            <MenuItem value={4}>Quarterly</MenuItem>
+            <MenuItem value={2}>Half Yearly</MenuItem>
+            <MenuItem value={1}>Yearly</MenuItem>
+          </TextField>
           <TextField
             name="regularInvestment"
-            label="Regular Investment"
+            label="Regular Investment (Optional)"
             variant="outlined"
             type="number"
             value={regularInvestment}
