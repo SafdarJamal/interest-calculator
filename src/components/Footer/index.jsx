@@ -14,9 +14,6 @@ const useStyles = makeStyles(theme => ({
   list: {
     marginBottom: theme.spacing(2)
   },
-  subheader: {
-    backgroundColor: theme.palette.background.paper
-  },
   appBar: {
     top: 'auto',
     bottom: 0
@@ -38,15 +35,13 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="overline" className={classes.title}>
-            © 2019 Safdar Jamal | All Rights Reserved
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </React.Fragment>
+    <AppBar position="fixed" className={classes.appBar}>
+      <Toolbar>
+        <Typography variant="overline" className={classes.title}>
+          © 2019 Safdar Jamal | All Rights Reserved
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 };
 
