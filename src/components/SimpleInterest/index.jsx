@@ -23,7 +23,7 @@ class SimpleInterestForm extends Component {
       initialInvestment: '',
       interestRate: '',
       calculationPeriod: '',
-      calculationPeriodType: 2
+      calculationPeriodType: 1
     };
   }
 
@@ -39,18 +39,9 @@ class SimpleInterestForm extends Component {
       interestRate,
       calculationPeriodType
     } = this.state;
-    let { calculationPeriod } = this.state;
 
-    switch (calculationPeriodType) {
-      case 0:
-        calculationPeriod = calculationPeriod / 365 / 1;
-        break;
-      case 1:
-        calculationPeriod = calculationPeriod / 12 / 1;
-        break;
-      default:
-        break;
-    }
+    let { calculationPeriod } = this.state;
+    calculationPeriod = calculationPeriod / calculationPeriodType / 1;
 
     calculateSimpleInterest(initialInvestment, interestRate, calculationPeriod);
   };
@@ -101,16 +92,14 @@ class SimpleInterestForm extends Component {
           <TextField
             name="calculationPeriodType"
             label="Calculation Period Type"
+            variant="outlined"
             select
             value={calculationPeriodType}
             onChange={this.handleChange}
-            variant="outlined"
           >
-            <MenuItem value={0}>Days</MenuItem>
-            <MenuItem value={1}>Months</MenuItem>
-            <MenuItem value={2} selected>
-              Years
-            </MenuItem>
+            <MenuItem value={365}>Days</MenuItem>
+            <MenuItem value={12}>Months</MenuItem>
+            <MenuItem value={1}>Years</MenuItem>
           </TextField>
           <br />
           <Button type="submit" variant="contained" color="primary">
