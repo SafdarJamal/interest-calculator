@@ -16,8 +16,8 @@ const TabsPanel = ({ tabStatus, setTabStatus }) => {
       centered
       variant="fullWidth"
     >
-      <Tab label="Simple Interest Calculator" />
-      <Tab label="Compound Interest Calculator" />
+      <Tab label="Simple Interest" />
+      <Tab label="Compound Interest" />
     </Tabs>
   );
 };
