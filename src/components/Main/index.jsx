@@ -9,8 +9,8 @@ import CompoundInterest from '../CompoundInterest';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    marginTop: 100,
-    marginBottom: 100
+    marginTop: 80,
+    marginBottom: 20
   }
 });
 
