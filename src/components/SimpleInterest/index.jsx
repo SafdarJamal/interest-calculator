@@ -107,20 +107,15 @@ class SimpleInterest extends Component {
             <MenuItem value={1}>Years</MenuItem>
           </TextField>
           <br />
-          {isFormFilled ? (
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="large"
-            >
-              Calculate
-            </Button>
-          ) : (
-            <Button disabled variant="contained" size="large">
-              Calculate
-            </Button>
-          )}
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+            disabled={!isFormFilled}
+          >
+            Calculate
+          </Button>
         </form>
       </Paper>
     );
