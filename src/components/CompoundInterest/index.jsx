@@ -56,6 +56,17 @@ class CompoundInterest extends Component {
     );
   };
 
+  handleReset = e => {
+    this.setState({
+      initialInvestment: '',
+      interestRate: '',
+      calculationPeriod: '',
+      calculationPeriodType: 1,
+      compoundInterval: 12,
+      regularInvestment: ''
+    });
+  };
+
   render() {
     const {
       initialInvestment,
@@ -81,10 +92,11 @@ class CompoundInterest extends Component {
     return (
       <Paper elevation={2}>
         <form
-          onSubmit={this.handleSubmit}
           className={classes.root}
           noValidate
           autoComplete="off"
+          onSubmit={this.handleSubmit}
+          onReset={this.handleReset}
         >
           <TextField
             autoFocus
@@ -154,6 +166,15 @@ class CompoundInterest extends Component {
             disabled={!isFormFilled}
           >
             Calculate
+          </Button>
+          <Button
+            type="reset"
+            variant="contained"
+            color="secondary"
+            size="large"
+            disabled={!isFormFilled}
+          >
+            Reset
           </Button>
         </form>
       </Paper>

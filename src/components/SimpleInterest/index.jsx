@@ -46,6 +46,15 @@ class SimpleInterest extends Component {
     calculateSimpleInterest(initialInvestment, interestRate, calculationPeriod);
   };
 
+  handleReset = e => {
+    this.setState({
+      initialInvestment: '',
+      interestRate: '',
+      calculationPeriod: '',
+      calculationPeriodType: 1
+    });
+  };
+
   render() {
     const {
       initialInvestment,
@@ -64,10 +73,11 @@ class SimpleInterest extends Component {
     return (
       <Paper elevation={2}>
         <form
-          onSubmit={this.handleSubmit}
           className={classes.root}
           noValidate
           autoComplete="off"
+          onSubmit={this.handleSubmit}
+          onReset={this.handleReset}
         >
           <TextField
             autoFocus
@@ -115,6 +125,15 @@ class SimpleInterest extends Component {
             disabled={!isFormFilled}
           >
             Calculate
+          </Button>
+          <Button
+            type="reset"
+            variant="contained"
+            color="secondary"
+            size="large"
+            disabled={!isFormFilled}
+          >
+            Reset
           </Button>
         </form>
       </Paper>
