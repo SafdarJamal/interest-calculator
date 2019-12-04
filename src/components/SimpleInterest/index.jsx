@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
@@ -71,72 +70,70 @@ class SimpleInterest extends Component {
     }
 
     return (
-      <Paper elevation={2}>
-        <form
-          className={classes.root}
-          noValidate
-          autoComplete="off"
-          onSubmit={this.handleSubmit}
-          onReset={this.handleReset}
+      <form
+        className={classes.root}
+        noValidate
+        autoComplete="off"
+        onSubmit={this.handleSubmit}
+        onReset={this.handleReset}
+      >
+        <TextField
+          autoFocus
+          name="initialInvestment"
+          label="Initial Investment"
+          variant="outlined"
+          type="number"
+          value={initialInvestment}
+          onChange={this.handleChange}
+        />
+        <TextField
+          name="interestRate"
+          label="Yearly Interest Rate (%)"
+          variant="outlined"
+          type="number"
+          value={interestRate}
+          onChange={this.handleChange}
+        />
+        <TextField
+          name="calculationPeriod"
+          label="Calculation Period"
+          variant="outlined"
+          type="number"
+          value={calculationPeriod}
+          onChange={this.handleChange}
+        />
+        <TextField
+          name="calculationPeriodType"
+          label="Calculation Period Type"
+          variant="outlined"
+          select
+          value={calculationPeriodType}
+          onChange={this.handleChange}
         >
-          <TextField
-            autoFocus
-            name="initialInvestment"
-            label="Initial Investment"
-            variant="outlined"
-            type="number"
-            value={initialInvestment}
-            onChange={this.handleChange}
-          />
-          <TextField
-            name="interestRate"
-            label="Yearly Interest Rate (%)"
-            variant="outlined"
-            type="number"
-            value={interestRate}
-            onChange={this.handleChange}
-          />
-          <TextField
-            name="calculationPeriod"
-            label="Calculation Period"
-            variant="outlined"
-            type="number"
-            value={calculationPeriod}
-            onChange={this.handleChange}
-          />
-          <TextField
-            name="calculationPeriodType"
-            label="Calculation Period Type"
-            variant="outlined"
-            select
-            value={calculationPeriodType}
-            onChange={this.handleChange}
-          >
-            <MenuItem value={365}>Days</MenuItem>
-            <MenuItem value={12}>Months</MenuItem>
-            <MenuItem value={1}>Years</MenuItem>
-          </TextField>
-          <br />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            size="large"
-            disabled={!isFormFilled}
-          >
-            Calculate
-          </Button>
-          <Button
-            type="reset"
-            variant="contained"
-            color="secondary"
-            size="large"
-            disabled={!isFormFilled}
-          >
-            Reset
-          </Button>
-        </form>
-      </Paper>
+          <MenuItem value={365}>Days</MenuItem>
+          <MenuItem value={12}>Months</MenuItem>
+          <MenuItem value={1}>Years</MenuItem>
+        </TextField>
+        <br />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          size="large"
+          disabled={!isFormFilled}
+        >
+          Calculate
+        </Button>
+        <Button
+          type="reset"
+          variant="contained"
+          color="secondary"
+          size="large"
+          disabled={!isFormFilled}
+        >
+          Reset
+        </Button>
+      </form>
     );
   }
 }
