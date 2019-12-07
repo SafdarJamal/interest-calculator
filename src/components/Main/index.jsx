@@ -6,13 +6,17 @@ import TabsPanel from '../TabsPanel';
 import SimpleInterest from '../SimpleInterest';
 import CompoundInterest from '../CompoundInterest';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     marginTop: 80,
-    marginBottom: 20
+    marginBottom: 20,
+    margin: 'auto',
+    [theme.breakpoints.up('lg')]: {
+      width: '50%'
+    }
   }
-});
+}));
 
 const Main = () => {
   const classes = useStyles();
