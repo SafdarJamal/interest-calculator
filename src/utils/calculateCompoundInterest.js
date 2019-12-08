@@ -7,7 +7,7 @@ const calculateCompoundInterest = (P, r, t, n, PMT) => {
     ).toFixed(2)
   );
 
-  console.log(A, Number((A - P).toFixed(2)));
+  console.log(A, Number((A - P - PMT * 12 * t).toFixed(2)));
 
   return A;
 };
