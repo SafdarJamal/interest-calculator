@@ -12,17 +12,7 @@ const useStyles = makeStyles({
   }
 });
 
-const createData = (name, value) => {
-  return { name, value };
-};
-
-const rows = [
-  createData('Initial Investment', 159),
-  createData('Interest Earned', 237),
-  createData('Total', 262)
-];
-
-const Result = () => {
+const Result = ({ resultData }) => {
   const classes = useStyles();
 
   return (
@@ -35,10 +25,10 @@ const Result = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map(row => (
-          <TableRow key={row.name} hover>
-            <TableCell>{row.name}</TableCell>
-            <TableCell align="right">{row.value}</TableCell>
+        {resultData.map(i => (
+          <TableRow key={i.name} hover>
+            <TableCell>{i.name}</TableCell>
+            <TableCell align="right">{i.value}</TableCell>
           </TableRow>
         ))}
       </TableBody>
