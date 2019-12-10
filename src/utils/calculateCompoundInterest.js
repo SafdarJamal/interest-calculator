@@ -1,5 +1,8 @@
 const calculateCompoundInterest = (P, r, t, n, PMT) => {
+  P = Number(P.toFixed(2));
   r = r / 100;
+  PMT = Number(Number(PMT).toFixed(2));
+
   const A = Number(
     (
       P * Math.pow(1 + r / n, n * t) +
@@ -7,9 +10,10 @@ const calculateCompoundInterest = (P, r, t, n, PMT) => {
     ).toFixed(2)
   );
 
-  console.log(A, Number((A - P - PMT * 12 * t).toFixed(2)));
+  PMT = Number((PMT * 12 * t).toFixed(2));
+  const I = Number((A - P - PMT).toFixed(2));
 
-  return A;
+  return { P, PMT, I, A };
 };
 
 export { calculateCompoundInterest };
