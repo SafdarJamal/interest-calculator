@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import TabsPanel from '../TabsPanel';
 import SimpleInterest from '../SimpleInterest';
 import CompoundInterest from '../CompoundInterest';
-import Result from '../Result';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,8 +28,6 @@ const Main = () => {
         <TabsPanel tabStatus={tabStatus} setTabStatus={setTabStatus} />
         {tabStatus === 0 && <SimpleInterest />}
         {tabStatus === 1 && <CompoundInterest />}
-        <br />
-        <Result />
       </Paper>
     </Container>
   );
