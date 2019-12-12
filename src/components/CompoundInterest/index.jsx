@@ -96,6 +96,8 @@ class CompoundInterest extends Component {
       resultData[3].value = A;
 
       this.setState({ isCalculating: false, resultData });
+
+      this.props.scrollBottom();
     }, 2000);
   };
 
@@ -119,6 +121,8 @@ class CompoundInterest extends Component {
           { name: 'Total', value: 0 }
         ]
       });
+
+      this.props.scrollTop();
     }, 2000);
   };
 

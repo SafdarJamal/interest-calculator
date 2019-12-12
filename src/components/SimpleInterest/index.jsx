@@ -88,6 +88,8 @@ class SimpleInterest extends Component {
       resultData[2].value = A;
 
       this.setState({ isCalculating: false, resultData });
+
+      this.props.scrollBottom();
     }, 2000);
   };
 
@@ -108,6 +110,8 @@ class SimpleInterest extends Component {
           { name: 'Total', value: 0 }
         ]
       });
+
+      this.props.scrollTop();
     }, 2000);
   };
 
