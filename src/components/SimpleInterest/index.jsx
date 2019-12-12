@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
 import Result from '../Result';
 
@@ -29,6 +30,11 @@ const styles = theme => ({
       width: '48%',
       marginLeft: 11
     }
+  },
+  buttonProgress: {
+    position: 'absolute',
+    marginTop: 8,
+    marginLeft: -150
   }
 });
 
@@ -41,6 +47,8 @@ class SimpleInterest extends Component {
       interestRate: '',
       calculationPeriod: '',
       calculationPeriodType: 1,
+      isCalculating: false,
+      isResetting: false,
       resultData: [
         { name: 'Initial Investment', value: 0 },
         { name: 'Interest Earned', value: 0 },
@@ -56,41 +64,51 @@ class SimpleInterest extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const {
-      initialInvestment,
-      interestRate,
-      calculationPeriodType,
-      resultData
-    } = this.state;
+    this.setState({ isCalculating: true });
 
-    let { calculationPeriod } = this.state;
-    calculationPeriod = calculationPeriod / calculationPeriodType / 1;
+    setTimeout(() => {
+      const {
+        initialInvestment,
+        interestRate,
+        calculationPeriodType,
+        resultData
+      } = this.state;
 
-    const { P, I, A } = calculateSimpleInterest(
-      initialInvestment,
-      interestRate,
-      calculationPeriod
-    );
+      let { calculationPeriod } = this.state;
+      calculationPeriod = calculationPeriod / calculationPeriodType / 1;
 
-    resultData[0].value = P;
-    resultData[1].value = I;
-    resultData[2].value = A;
+      const { P, I, A } = calculateSimpleInterest(
+        initialInvestment,
+        interestRate,
+        calculationPeriod
+      );
 
-    this.setState({ resultData });
+      resultData[0].value = P;
+      resultData[1].value = I;
+      resultData[2].value = A;
+
+      this.setState({ isCalculating: false, resultData });
+    }, 2000);
   };
 
   handleReset = e => {
-    this.setState({
-      initialInvestment: '',
-      interestRate: '',
-      calculationPeriod: '',
-      calculationPeriodType: 1,
-      resultData: [
-        { name: 'Initial Investment', value: 0 },
-        { name: 'Interest Earned', value: 0 },
-        { name: 'Total', value: 0 }
-      ]
-    });
+    this.setState({ isResetting: true });
+
+    setTimeout(() => {
+      this.setState({
+        initialInvestment: '',
+        interestRate: '',
+        calculationPeriod: '',
+        calculationPeriodType: 1,
+        isCalculating: false,
+        isResetting: false,
+        resultData: [
+          { name: 'Initial Investment', value: 0 },
+          { name: 'Interest Earned', value: 0 },
+          { name: 'Total', value: 0 }
+        ]
+      });
+    }, 2000);
   };
 
   render() {
@@ -99,6 +117,8 @@ class SimpleInterest extends Component {
       interestRate,
       calculationPeriod,
       calculationPeriodType,
+      isCalculating,
+      isResetting,
       resultData
     } = this.state;
 
@@ -174,20 +194,33 @@ class SimpleInterest extends Component {
                 variant="contained"
                 color="primary"
                 size="large"
-                disabled={!isFormFilled}
+                disabled={!isFormFilled || isCalculating}
               >
                 Calculate
               </Button>
+              {isCalculating && (
+                <CircularProgress
+                  className={classes.buttonProgress}
+                  thickness={4}
+                  size={28}
+                />
+              )}
               <Button
                 className={classes.resetButton}
                 type="reset"
                 variant="contained"
-                color="secondary"
                 size="large"
-                disabled={!isFormFilled}
+                disabled={!isFormFilled || isResetting}
               >
                 Reset
               </Button>
+              {isResetting && (
+                <CircularProgress
+                  className={classes.buttonProgress}
+                  thickness={4}
+                  size={28}
+                />
+              )}
             </Grid>
           </Grid>
         </form>
