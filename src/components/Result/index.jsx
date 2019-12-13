@@ -7,8 +7,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 
 const useStyles = makeStyles({
-  root: {
-    width: '100%'
+  tableCell: {
+    fontSize: 16
   }
 });
 
@@ -16,10 +16,10 @@ const Result = ({ resultData }) => {
   const classes = useStyles();
 
   return (
-    <Table className={classes.root} aria-label="simple table">
+    <Table aria-label="result">
       <TableHead>
         <TableRow>
-          <TableCell colSpan={2} align="center">
+          <TableCell className={classes.tableCell} colSpan={2} align="center">
             RESULT
           </TableCell>
         </TableRow>
@@ -27,8 +27,10 @@ const Result = ({ resultData }) => {
       <TableBody>
         {resultData.map(i => (
           <TableRow key={i.name} hover>
-            <TableCell>{i.name}</TableCell>
-            <TableCell align="right">{i.value}</TableCell>
+            <TableCell className={classes.tableCell}>{i.name} </TableCell>
+            <TableCell className={classes.tableCell} align="right">
+              {i.value}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
