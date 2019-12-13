@@ -15,13 +15,15 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar>
-        <Typography variant="overline" className={classes.title}>
-          © 2019 Safdar Jamal | All Rights Reserved
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <footer>
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <Typography variant="overline" className={classes.title}>
+            © 2019 Safdar Jamal | All Rights Reserved
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </footer>
   );
 };
 

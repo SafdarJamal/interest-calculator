@@ -20,7 +20,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <header className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -28,7 +28,7 @@ const Header = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-    </div>
+    </header>
   );
 };
 
