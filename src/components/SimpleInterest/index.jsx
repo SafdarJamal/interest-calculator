@@ -153,6 +153,7 @@ class SimpleInterest extends Component {
                 type="number"
                 value={initialInvestment}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={12}>
@@ -165,6 +166,7 @@ class SimpleInterest extends Component {
                 type="number"
                 value={interestRate}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={6}>
@@ -177,6 +179,7 @@ class SimpleInterest extends Component {
                 type="number"
                 value={calculationPeriod}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={6}>
@@ -188,6 +191,7 @@ class SimpleInterest extends Component {
                 select
                 value={calculationPeriodType}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               >
                 <MenuItem value={365}>Days</MenuItem>
                 <MenuItem value={12}>Months</MenuItem>

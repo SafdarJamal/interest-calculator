@@ -171,6 +171,7 @@ class CompoundInterest extends Component {
                 type="number"
                 value={initialInvestment}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={12}>
@@ -183,6 +184,7 @@ class CompoundInterest extends Component {
                 type="number"
                 value={interestRate}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={6}>
@@ -195,6 +197,7 @@ class CompoundInterest extends Component {
                 type="number"
                 value={calculationPeriod}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={6}>
@@ -206,6 +209,7 @@ class CompoundInterest extends Component {
                 select
                 value={calculationPeriodType}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               >
                 <MenuItem value={365}>Days</MenuItem>
                 <MenuItem value={12}>Months</MenuItem>
@@ -222,6 +226,7 @@ class CompoundInterest extends Component {
                 select
                 value={compoundInterval}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               >
                 <MenuItem value={365}>Daily</MenuItem>
                 <MenuItem value={12}>Monthly</MenuItem>
@@ -240,6 +245,7 @@ class CompoundInterest extends Component {
                 type="number"
                 value={regularInvestment}
                 onChange={this.handleChange}
+                disabled={isCalculating || isResetting}
               />
             </Grid>
             <Grid item xs={12}>
