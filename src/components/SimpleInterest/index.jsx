@@ -146,7 +146,6 @@ class SimpleInterest extends Component {
             <Grid item xs={12}>
               <TextField
                 className={classes.input}
-                autoFocus
                 name="initialInvestment"
                 label="Initial Investment"
                 variant="outlined"
