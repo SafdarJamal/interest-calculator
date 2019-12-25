@@ -17,7 +17,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.root} position="fixed">
+    <AppBar role="banner" className={classes.root} position="fixed">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           Interest Calculator

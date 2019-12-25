@@ -35,24 +35,19 @@ const Main = () => {
   };
 
   return (
-    <main className={classes.root}>
-      <Container>
-        <div ref={top}></div>
-        <Paper elevation={2} className={classes.paper}>
-          <TabsPanel tabStatus={tabStatus} setTabStatus={setTabStatus} />
-          {tabStatus === 0 && (
-            <SimpleInterest scrollTop={scrollTop} scrollBottom={scrollBottom} />
-          )}
-          {tabStatus === 1 && (
-            <CompoundInterest
-              scrollTop={scrollTop}
-              scrollBottom={scrollBottom}
-            />
-          )}
-        </Paper>
-        <div ref={bottom}></div>
-      </Container>
-    </main>
+    <Container className={classes.root}>
+      <div ref={top}></div>
+      <Paper elevation={2} className={classes.paper}>
+        <TabsPanel tabStatus={tabStatus} setTabStatus={setTabStatus} />
+        {tabStatus === 0 && (
+          <SimpleInterest scrollTop={scrollTop} scrollBottom={scrollBottom} />
+        )}
+        {tabStatus === 1 && (
+          <CompoundInterest scrollTop={scrollTop} scrollBottom={scrollBottom} />
+        )}
+      </Paper>
+      <div ref={bottom}></div>
+    </Container>
   );
 };
 

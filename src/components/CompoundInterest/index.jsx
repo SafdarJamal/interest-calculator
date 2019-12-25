@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -152,7 +152,7 @@ class CompoundInterest extends Component {
     }
 
     return (
-      <Fragment>
+      <main role="main">
         <form
           className={classes.root}
           noValidate
@@ -286,7 +286,7 @@ class CompoundInterest extends Component {
           </Grid>
         </form>
         <Result resultData={resultData} />
-      </Fragment>
+      </main>
     );
   }
 }
