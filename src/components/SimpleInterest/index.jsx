@@ -146,6 +146,7 @@ class SimpleInterest extends Component {
             <Grid item xs={12}>
               <TextField
                 className={classes.input}
+                id="initial-investment"
                 name="initialInvestment"
                 label="Initial Investment"
                 variant="outlined"
@@ -157,6 +158,7 @@ class SimpleInterest extends Component {
             <Grid item xs={12}>
               <TextField
                 className={classes.input}
+                id="interest-rate"
                 name="interestRate"
                 label="Yearly Interest Rate (%)"
                 variant="outlined"
@@ -168,6 +170,7 @@ class SimpleInterest extends Component {
             <Grid item xs={6}>
               <TextField
                 className={classes.input}
+                id="calculation-period"
                 name="calculationPeriod"
                 label="Calculation Period"
                 variant="outlined"
@@ -179,6 +182,7 @@ class SimpleInterest extends Component {
             <Grid item xs={6}>
               <TextField
                 className={classes.input}
+                id="calculation-period-type"
                 name="calculationPeriodType"
                 variant="outlined"
                 select
