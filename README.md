@@ -38,4 +38,4 @@ npm start
 
 ## License
 
-This is an open source software [licensed as MIT](https://github.com/SafdarJamal/interest-calculator/blob/master/LICENSE).
+Code released under the [MIT License](https://github.com/SafdarJamal/interest-calculator/blob/master/LICENSE).
