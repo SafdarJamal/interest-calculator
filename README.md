@@ -2,6 +2,10 @@
 
 A Fast, Offline-friendly, Interest Calculator Progressive Web App.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/48409548/72255303-342a4a80-3628-11ea-85f0-3baa1eeff653.PNG" alt='Interest Calculator in Action'>
+</p>
+
 ## Development
 
 To get a local copy of the code, clone it using git:
