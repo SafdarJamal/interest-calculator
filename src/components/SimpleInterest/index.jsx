@@ -6,8 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import Result from '../Result';
 import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
+import Result from '../Result';
 
 const styles = theme => ({
   root: {
@@ -43,18 +43,34 @@ class SimpleInterest extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    const data = JSON.parse(localStorage.getItem('simpleInterest'));
+
+    const {
+      initialInvestment,
+      interestRate,
+      calculationPeriod,
+      calculationPeriodType,
+      resultData
+    } = data || {
       initialInvestment: '',
       interestRate: '',
       calculationPeriod: '',
       calculationPeriodType: 1,
-      isCalculating: false,
-      isResetting: false,
       resultData: [
         { name: 'Initial Investment', value: 0 },
         { name: 'Interest Earned', value: 0 },
         { name: 'Total', value: 0 }
       ]
+    };
+
+    this.state = {
+      initialInvestment,
+      interestRate,
+      calculationPeriod,
+      calculationPeriodType,
+      isCalculating: false,
+      isResetting: false,
+      resultData
     };
   }
 
@@ -133,6 +149,17 @@ class SimpleInterest extends Component {
     if (initialInvestment && interestRate && calculationPeriod) {
       isFormFilled = true;
     }
+
+    localStorage.setItem(
+      'simpleInterest',
+      JSON.stringify({
+        initialInvestment,
+        interestRate,
+        calculationPeriod,
+        calculationPeriodType,
+        resultData
+      })
+    );
 
     return (
       <main role="main">
