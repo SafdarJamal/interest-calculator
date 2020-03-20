@@ -6,8 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import Result from '../Result';
 import { calculateCompoundInterest } from '../../utils/calculateCompoundInterest';
+import Result from '../Result';
 
 const styles = theme => ({
   root: {
@@ -43,21 +43,41 @@ class CompoundInterest extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    const data = JSON.parse(localStorage.getItem('compoundInterest'));
+
+    const {
+      initialInvestment,
+      interestRate,
+      calculationPeriod,
+      calculationPeriodType,
+      compoundInterval,
+      regularInvestment,
+      resultData
+    } = data || {
       initialInvestment: '',
       interestRate: '',
       calculationPeriod: '',
       calculationPeriodType: 1,
       compoundInterval: 12,
       regularInvestment: '',
-      isCalculating: false,
-      isResetting: false,
       resultData: [
         { name: 'Initial Investment', value: 0 },
         { name: 'Regular Investment', value: 0 },
         { name: 'Interest Earned', value: 0 },
         { name: 'Total', value: 0 }
       ]
+    };
+
+    this.state = {
+      initialInvestment,
+      interestRate,
+      calculationPeriod,
+      calculationPeriodType,
+      compoundInterval,
+      regularInvestment,
+      isCalculating: false,
+      isResetting: false,
+      resultData
     };
   }
 
@@ -151,6 +171,19 @@ class CompoundInterest extends Component {
     ) {
       isFormFilled = true;
     }
+
+    localStorage.setItem(
+      'compoundInterest',
+      JSON.stringify({
+        initialInvestment,
+        interestRate,
+        calculationPeriod,
+        calculationPeriodType,
+        compoundInterval,
+        regularInvestment,
+        resultData
+      })
+    );
 
     return (
       <main role="main">
