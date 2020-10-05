@@ -1,7 +1,7 @@
 {
   "name": "Interest Calculator",
   "short_name": "Interest Calculator",
-  "description": "A fast, offline-friendly, simple and compound interest calculator.",
+  "description": "A Fast, Offline-friendly, Interest Calculator Progressive Web App.",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
