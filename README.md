@@ -1,10 +1,8 @@
-# Interest Calculator
+# [Interest Calculator](https://safdarjamal.github.io/interest-calculator/)
 
-A Fast, Offline-friendly, Interest Calculator Progressive Web App.
+A fast, user-friendly, offline-first, interest calculator progressive web app (PWA).
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/48409548/72255303-342a4a80-3628-11ea-85f0-3baa1eeff653.PNG" alt='Interest Calculator in Action'>
-</p>
+![Interest Calculator in Action](https://user-images.githubusercontent.com/48409548/95246294-b3525500-082d-11eb-8507-650d617a226f.png)
 
 ## Development
 
@@ -21,13 +19,15 @@ Install dependencies:
 npm install
 ```
 
-Finally, you need to start a local web server. Run:
+Now, you can start a local web server by running:
 
 ```
 npm start
 ```
 
-#### npm scripts
+and then you can open http://localhost:3000 to view it in the browser.
+
+#### Available Scripts
 
 | Script        | Description                                                             |
 | ------------- | ----------------------------------------------------------------------- |
