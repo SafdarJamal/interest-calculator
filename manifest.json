@@ -1,7 +1,7 @@
 {
   "name": "Interest Calculator",
   "short_name": "Interest Calculator",
-  "description": "A fast, offline-friendly, simple and compound interest calculator.",
+  "description": "A fast, user-friendly, offline-first, interest calculator progressive web app (PWA).",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
@@ -15,7 +15,7 @@
     }
   ],
   "start_url": ".",
-  "theme_color": "#3F51B5",
+  "theme_color": "#3f51b5",
   "background_color": "#e5e5e5",
   "orientation": "any",
   "display": "standalone"
