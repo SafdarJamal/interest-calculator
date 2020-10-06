@@ -16,4 +16,4 @@ const calculateCompoundInterest = (P, r, t, n, PMT) => {
   return { P, PMT, I, A };
 };
 
-export { calculateCompoundInterest };
+export default calculateCompoundInterest;

@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { calculateSimpleInterest } from '../../utils/calculateSimpleInterest';
+import { calculateSimpleInterest } from '../../utils';
 import Result from '../Result';
 
 const styles = theme => ({

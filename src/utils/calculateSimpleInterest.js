@@ -8,4 +8,4 @@ const calculateSimpleInterest = (P, r, t) => {
   return { P, I, A };
 };
 
-export { calculateSimpleInterest };
+export default calculateSimpleInterest;
