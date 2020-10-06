@@ -15,6 +15,8 @@ const useStyles = makeStyles({
 const Result = ({ resultData }) => {
   const classes = useStyles();
 
+  const numberFormatter = new Intl.NumberFormat('en-US');
+
   return (
     <Table aria-label="result">
       <TableHead>
