@@ -1,6 +1,12 @@
-# [Interest Calculator](https://safdarjamal.github.io/interest-calculator/)
+<h1 align="center">
+  <a href="https://safdarjamal.github.io/interest-calculator/">
+    Interest Calculator
+  </a>
+</h1>
 
-A fast, user-friendly, offline-first, interest calculator progressive web app (PWA).
+<p align="center">
+  A fast, user-friendly, offline-first, interest calculator progressive web app (PWA).
+</p>
 
 ![Interest Calculator in Action](https://user-images.githubusercontent.com/48409548/95246294-b3525500-082d-11eb-8507-650d617a226f.png)
 
