@@ -31,7 +31,7 @@ const Result = ({ resultData }) => {
           <TableRow key={i.name} hover>
             <TableCell className={classes.tableCell}>{i.name} </TableCell>
             <TableCell className={classes.tableCell} align="right">
-              {i.value}
+              {numberFormatter.format(i.value)}
             </TableCell>
           </TableRow>
         ))}
